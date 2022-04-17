@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box"></ul>
+    <script>
+        for (let i = 0; i < 5; i++) {
+            let newLi = document.createElement("li");
+            newli.innerHTML = i
+            box.appendChild(newLi);            
+        }
+
+        // 创建一个文档碎片
+        let frg = document.createDocumentFragment();
+        for (let i = 0; i < 5; i++) {
+            let newLi = document.createElement("li");
+            newli.innerHTML = i
+            frg.appendChild(newLi);   
+        }
+        // 一次性放到容器中，引发一次回流
+        box.appendChild(frg);
+        frg = null
+
+        let str = ``
+        for (let i = 0; i < 5; i++) {
+            stc += `<li>${i}</li>`
+        }
+        box.innerHTML = str
+    </script>
+</body>
+</html>
